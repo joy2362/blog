@@ -1,0 +1,7 @@
+
+/vendor
+.env
+.env.backup
+auth.json
+/.idea
+/.vscode
