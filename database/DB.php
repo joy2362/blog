@@ -69,28 +69,12 @@ class DB
     {
         self::load();
         try {
-            $conn = new PDO("mysql:host=". self::$db_host.":".self::$db_port , self::$db_username, self::$db_password);
+            $conn = new PDO("mysql:host=". self::$db_host.":".self::$db_port .";dbname=".self::$db_name, self::$db_username, self::$db_password);
             // set the PDO error mode to exception
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
            return $conn;
         } catch (\PDOException $e) {
-            echo "Connection failed: " . $e->getMessage();
+            die( "Connection failed: " . $e->getMessage());;
         }
-    }
-
-
-    public static function createDatabase(): void
-    {
-        try {
-            $conn = self::connection();
-           
-            $sql = "CREATE DATABASE IF NOT EXISTS ". self::$db_name;
-            // use exec() because no results are returned
-            $conn->exec($sql);
-          } catch(PDOException $e) {
-            echo "Connection failed: " . $e->getMessage();
-          }
-          
-          $conn = null;
     }
 }

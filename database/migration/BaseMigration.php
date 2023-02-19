@@ -4,10 +4,28 @@ namespace Database\migration;
 
 abstract class BaseMigration
 {
-    public $table;
+    /**
+     * @var string
+     */
+    public string $table;
+
+    /**
+     * @return mixed
+     */
     abstract public function create();
 
-    abstract public function drop();
+    /**
+     * @return string
+     */
+    public function drop(): string
+    {
+        return "DROP TABLE IF EXISTS ".$this->table;
+    }
 
-    abstract public function clear();
-}
+    /**
+     * @return string
+     */
+    public function clear(): string
+    {
+        return "TRUNCATE TABLE " .$this->table;
+    }}
