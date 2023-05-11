@@ -13,9 +13,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class Migration extends Command
 {
-    private string $filePath = 'database/migration/table/';
+    private string $filePath = '/database/migration/table';
 
-    private string $namespace = '\\Database\\migration\\table\\';
+    private string $namespace = 'Database\\migration\\table';
 
     protected function configure()
     {
@@ -27,9 +27,16 @@ class Migration extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $path = getSourceFilePath($this->filePath, $input->getArgument('name'));
+        $progressBar = new ProgressBar($output, 1);
+        $progressBar->start();
+        $path = getSourceFilePath($this->filePath, date("_Y_m_d_H_i_s_") . $input->getArgument('name'));
         makeDirectory(dirname($path));
-        $contents = generateStubContents($this->getStubPath(), $this->getStubVariables($input->getArgument('name')));
+        $contents = generateStubContents(
+            $this->getStubPath(),
+            $this->getStubVariables(date("_Y_m_d_H_i_s_") . $input->getArgument('name'))
+        );
+        $progressBar->finish();
+        $output->writeln('');
         createFile($path, $contents) ?
             $output->writeln('Migration successfully created') :
             $output->writeln('Migration already exits');
@@ -55,8 +62,8 @@ class Migration extends Command
         }
         return [
             'NAMESPACE' => $nameSpace,
-            'CLASS_NAME' => ucfirst($className),
-            'NAME' => ucfirst($className),
+            'CLASS_NAME' => $className,
+            'NAME' => $className,
         ];
     }
 }

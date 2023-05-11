@@ -46,7 +46,7 @@ class Migrate extends Command
         }
         $progressBar->finish();
         $output->writeln('');
-        $output->writeln('Migration complete.');
+        $output->writeln('Migrate complete.');
         return Command::SUCCESS;
     }
 

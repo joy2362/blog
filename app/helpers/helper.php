@@ -48,7 +48,7 @@ if (!function_exists('createFile')) {
     function createFile($path, $contents): bool
     {
         if (!file_exists($path)) {
-           // file_put_contents($path, $contents, 0);
+            file_put_contents($path, $contents, 0);
             return true;
         }
         return false;
