@@ -21,12 +21,12 @@ class create_categories_table extends BaseMigration
      */
     public function create(): array
     {
-        $data = [];
-        $data['firstName'] = 'varchar(255)';
-        $data['lastName'] = 'varchar(255)';
-        $data['address'] = 'varchar(255)';
-        $data['city'] = 'varchar(255)';
-        return $data;
+        return [
+            'id' => $this->id(),
+            'lastName' => $this->string(),
+            'address' => $this->string(),
+            'city' => $this->string()
+        ];
     }
 
 }

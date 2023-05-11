@@ -1,0 +1,30 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Database\migration\BaseMigration;
+
+/**
+ *
+ */
+class $CLASS_NAME$ extends BaseMigration
+{
+
+
+    /**
+     * @var string
+     */
+    public string $table = "$NAME$";
+
+    /**
+     * @return array
+     */
+    public function create(): array
+    {
+        return [
+            'id' => $this->id(),
+
+        ];
+    }
+
+}

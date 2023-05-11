@@ -1,6 +1,7 @@
 <?php
 
 namespace Console;
+
 require_once realpath(__DIR__ . '../../config.php');
 
 use Database\DB;
@@ -26,8 +27,7 @@ class Migrate extends Command
     {
         $location = realpath(__DIR__ . '../../database/migration/table');
 
-        $files = array_diff(  scandir($location), array(".", "..") );
-
+        $files = array_diff(scandir($location), array(".", ".."));
 
         $progressBar = new ProgressBar($output, count($files));
 
@@ -66,12 +66,11 @@ class Migrate extends Command
         $columns = " ( \n";
 
         foreach ($tableCols as $key => $value) {
-            if(!next($tableCols)) {
+            if (!next($tableCols)) {
                 $columns .= $key . " " . $value . "  \n";
-            }else{
+            } else {
                 $columns .= $key . " " . $value . " , \n";
             }
-
         }
 
         $columns .= " )  ";

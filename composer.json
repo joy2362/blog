@@ -9,7 +9,12 @@
       "Database\\": "database/",
       "Console\\": "console"
     },
-    "classmap": ["console"]
+    "files": [
+      "app/helpers/helper.php"
+    ],
+    "classmap": [
+      "console"
+    ]
   },
   "authors": [
     {
