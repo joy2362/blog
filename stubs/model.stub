@@ -1,0 +1,10 @@
+<?php
+
+namespace $NAMESPACE$;
+
+class $CLASS_NAME$  extends BaseModel
+{
+    public array $fillable = [];
+    public string $table = "$NAME$";
+
+}

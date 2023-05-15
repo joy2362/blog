@@ -4,9 +4,11 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 use Console\Migrate;
 use Console\Migration;
+use Console\Model;
 use Symfony\Component\Console\Application;
 
 $app = new Application();
 $app->add(new Migrate());
 $app->add(new Migration());
+$app->add(new Model());
 $app->run();
