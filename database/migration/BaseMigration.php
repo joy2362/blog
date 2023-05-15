@@ -32,7 +32,7 @@ abstract class BaseMigration
 
     public function id(): string
     {
-        return " INT NOT NULL AUTO_INCREMENT";
+        return " INT NOT NULL AUTO_INCREMENT PRIMARY KEY";
     }
 
     public function string($length = 255): string
