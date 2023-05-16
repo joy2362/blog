@@ -55,7 +55,7 @@ class DB
     }
 
 
-    private static function load()
+    private static function load(): void
     {
         self::setDbHost(constant('db_host'));
         self::setDbPort(constant('db_port'));
@@ -69,12 +69,16 @@ class DB
     {
         self::load();
         try {
-            $conn = new PDO("mysql:host=". self::$db_host.":".self::$db_port .";dbname=".self::$db_name, self::$db_username, self::$db_password);
+            $conn = new PDO(
+                "mysql:host=" . self::$db_host . ":" . self::$db_port . ";dbname=" . self::$db_name,
+                self::$db_username,
+                self::$db_password
+            );
             // set the PDO error mode to exception
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-           return $conn;
+            return $conn;
         } catch (\PDOException $e) {
-            die( "Connection failed: " . $e->getMessage());;
+            die("Connection failed: " . $e->getMessage());
         }
     }
 }

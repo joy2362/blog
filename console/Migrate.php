@@ -2,7 +2,7 @@
 
 namespace Console;
 
-require_once realpath(__DIR__ . '../../config.php');
+require_once realpath('config.php');
 
 use Database\DB;
 use Symfony\Component\Console\Command\Command;

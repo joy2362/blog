@@ -54,3 +54,11 @@ if (!function_exists('createFile')) {
         return false;
     }
 }
+
+if (!function_exists('view')) {
+    function view($path, $arrgs = [])
+    {
+        extract($arrgs);
+        return require realpath('src/views/' . $path . '.php');
+    }
+}
