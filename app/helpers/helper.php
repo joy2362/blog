@@ -66,3 +66,4 @@ if (!function_exists('view')) {
         return require realpath('src/views/' . $path . '.php');
     }
 }
+

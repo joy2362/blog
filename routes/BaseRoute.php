@@ -1,8 +1,9 @@
 <?php
 
-function path_info()
+function path_info(): string
 {
-    return $_SERVER['PATH_INFO'] ?? '/';
+    $path = explode('?', $_SERVER['REQUEST_URI']);
+    return $path[0] ?? '/';
 }
 
 $route_list = [];
@@ -37,7 +38,8 @@ if (isset($route_list[$real_path])) {
             if (isset($_REQUEST[$key])) {
                 $route_list[$real_path]['params'][$key] = $_REQUEST[$key];
             } else {
-                throw new Exception("{$key} Required");
+                require realpath('src/views/errors/422.php');
+                die();
             }
         }
     }
@@ -49,5 +51,5 @@ if (isset($route_list[$real_path])) {
         $route['params']
     );
 } else {
-    echo "Error 404 ";
+    require realpath('src/views/errors/404.php');
 }
