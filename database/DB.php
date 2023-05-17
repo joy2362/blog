@@ -57,11 +57,12 @@ class DB
 
     private static function load(): void
     {
-        self::setDbHost(constant('db_host'));
-        self::setDbPort(constant('db_port'));
-        self::setDbName(constant('db_name'));
-        self::setDbUsername(constant('db_username'));
-        self::setDbPassword(constant('db_password'));
+        $config = include('config/app.php');
+        self::setDbHost($config['db_host']);
+        self::setDbPort($config['db_port']);
+        self::setDbName($config['db_name']);
+        self::setDbUsername($config['db_username']);
+        self::setDbPassword($config['db_password']);
     }
 
 
