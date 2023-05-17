@@ -3,9 +3,7 @@
 
 function index()
 {
-    view('index', [
-        'name' => 'joy'
-    ]);
+    view('index');
 }
 
 function home()

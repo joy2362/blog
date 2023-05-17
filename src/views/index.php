@@ -3,4 +3,4 @@ echo "<h1>";
 echo "index page";
 echo "</h1>";
 
-var_dump($name);
+var_dump($session);

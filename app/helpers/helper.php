@@ -56,9 +56,13 @@ if (!function_exists('createFile')) {
 }
 
 if (!function_exists('view')) {
-    function view($path, $arrgs = [])
+    function view($path, $args = [])
     {
-        extract($arrgs);
+        $session = $_SESSION;
+        $get = $_GET;
+        $server = $_SERVER;
+        $request = $_REQUEST;
+        extract($args);
         return require realpath('src/views/' . $path . '.php');
     }
 }
