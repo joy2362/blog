@@ -1,6 +1,6 @@
 <?php
 
-namespace Console;
+namespace App\console;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\ProgressBar;

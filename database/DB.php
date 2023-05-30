@@ -64,8 +64,6 @@ class DB
         self::setDbUsername($config['db_username']);
         self::setDbPassword($config['db_password']);
     }
-
-
     public static function connection()
     {
         self::load();

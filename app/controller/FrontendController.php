@@ -25,3 +25,8 @@ function post()
 {
     view('post');
 }
+
+function login()
+{
+    var_dump($_POST);
+}

@@ -1,8 +1,8 @@
 <?php
 
-namespace Console;
+namespace App\console;
 
-require_once realpath('config.php');
+require_once realpath('config/app.php');
 
 use Database\DB;
 use Symfony\Component\Console\Command\Command;
@@ -29,11 +29,11 @@ class Migration extends Command
     {
         $progressBar = new ProgressBar($output, 1);
         $progressBar->start();
-        $path = getSourceFilePath($this->filePath, Migration . phpdate("_Y_m_d_H_i_s_") . $input->getArgument('name'));
+        $path = getSourceFilePath($this->filePath,  date("_Y_m_d_H_i_s_") . $input->getArgument('name'));
         makeDirectory(dirname($path));
         $contents = generateStubContents(
             $this->getStubPath(),
-            $this->getStubVariables(Migration . phpdate("_Y_m_d_H_i_s_") . $input->getArgument('name'))
+            $this->getStubVariables( date("_Y_m_d_H_i_s_") . $input->getArgument('name'))
         );
         $progressBar->finish();
         $output->writeln('');

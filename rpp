@@ -2,9 +2,10 @@
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 
-use Console\Migrate;
-use Console\Migration;
-use Console\Model;
+
+use App\console\Migrate;
+use App\console\Migration;
+use App\console\Model;
 use Symfony\Component\Console\Application;
 
 $app = new Application();

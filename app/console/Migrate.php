@@ -1,8 +1,8 @@
 <?php
 
-namespace Console;
+namespace App\console;
 
-require_once realpath('config.php');
+require_once realpath('config/app.php');
 
 use Database\DB;
 use Symfony\Component\Console\Command\Command;
@@ -25,7 +25,7 @@ class Migrate extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $location = realpath(__DIR__ . '../../database/migration/table');
+        $location = realpath( 'database/migration/table');
 
         $files = array_diff(scandir($location), array(".", ".."));
 
