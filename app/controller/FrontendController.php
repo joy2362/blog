@@ -6,17 +6,22 @@ function index()
     view('index');
 }
 
-function home()
-{
-    view('home');
-}
+//function about($params = [])
+//{
+//    view('about');
+//}
 
-function about($params = [])
+function about()
 {
     view('about');
 }
 
-function contract()
+function contact()
 {
-    view('contract');
+    view('contact');
+}
+
+function post()
+{
+    view('post');
 }

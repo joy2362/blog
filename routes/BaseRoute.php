@@ -29,7 +29,8 @@ if (!$real_path) {
 
 if (isset($route_list[$real_path])) {
     if ($_SERVER["REQUEST_METHOD"] != $route_list[$real_path]['method']) {
-        throw new Exception("Method not support for this route");
+        require realpath('src/views/errors/405.php');
+        die();
     }
 
     $route_request_params = $route_list[$real_path]['params'];
@@ -52,4 +53,5 @@ if (isset($route_list[$real_path])) {
     );
 } else {
     require realpath('src/views/errors/404.php');
+    die();
 }
